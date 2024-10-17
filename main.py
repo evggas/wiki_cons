@@ -12,7 +12,7 @@ def search_wikipedia(query):
     print(f"Открыта страница по запросу: {query}")
 
 def list_paragraphs():
-    paragraphs = browser.find_elements(By.TAG_NAME, "p")  # Находим все параграфы на странице
+    paragraphs = browser.find_elements(By.TAG_NAME, "p")
     for i, paragraph in enumerate(paragraphs):
         print(f"\nПараграф {i + 1}:\n{paragraph.text}")
         if i % 5 == 0:
@@ -22,11 +22,11 @@ def list_paragraphs():
 
 
 def show_links():
-    links = browser.find_elements(By.CSS_SELECTOR, "a")  # Находим все ссылки на странице
+    links = browser.find_elements(By.CSS_SELECTOR, "a")
     internal_links = [link for link in links if "wiki" in link.get_attribute('href')]
 
     print("\nСвязанные статьи:")
-    for i, link in enumerate(internal_links[:10]):  # Показываем первые 10 ссылок для простоты
+    for i, link in enumerate(internal_links[:10]): 
         print(f"{i + 1}. {link.text} - {link.get_attribute('href')}")
 
     choice = input("Введите номер статьи, чтобы перейти (или 'назад' для возврата): ")

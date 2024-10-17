@@ -5,10 +5,10 @@ import time
 browser = webdriver.Chrome()
 
 def search_wikipedia(query):
-    # Переходим на страницу с результатами поиска
+
     url = f"https://ru.wikipedia.org/wiki/{query.replace(' ', '_')}"
     browser.get(url)
-    time.sleep(3)  # Ожидаем загрузку страницы
+    time.sleep(3)
     print(f"Открыта страница по запросу: {query}")
 
 def list_paragraphs():
