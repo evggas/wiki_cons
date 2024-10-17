@@ -1,0 +1,21 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+# Настраиваем драйвер
+browser = webdriver.Chrome()
+
+def search_wikipedia(query):
+    # Переходим на страницу с результатами поиска
+    url = f"https://ru.wikipedia.org/wiki/{query.replace(' ', '_')}"
+    browser.get(url)
+    time.sleep(3)  # Ожидаем загрузку страницы
+    print(f"Открыта страница по запросу: {query}")
+
+# Основной цикл программы
+while True:
+    query = input("Введите запрос для поиска на Википедии (или 'exit' для выхода): ")
+    if query.lower() == 'exit':
+        break
+
+    search_wikipedia(query)
